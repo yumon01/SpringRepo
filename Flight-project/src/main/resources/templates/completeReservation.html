@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Complete Reservation</h2>
+Airline: <span th:text="${flight.operatingAirlines}"></span><br/>
+Departure City: <span th:text="${flight.departureCity}"></span><br/>
+Arrival City: <span th:text="${flight.arrivalCity}"></span><br/>
+
+<form action="completeReservation" method="post">
+    <h2>Passenger Details</h2>
+    First Name: <input type="text" name="passengerFirstName"/><br/>
+    Last Name: <input type="text" name="passengerLastName"/><br/>
+    Email: <input type="text" name="passengerEmail"/><br/>
+    Phone: <input type="text" name="passengerPhone"/><br/>
+
+    <h2>Card Details</h2>
+    Name on the card: <input type="text" name="nameOnTheCard"/><br/>
+    Card No: <input type="text" name="cardNumber"/><br/>
+    Expiry Date: <input type="text" name="expirationDate"/><br/>
+    Three digit sec code: <input type="text" name="securityCode"/><br/>
+
+    <input type="hidden" name="flightId" th:value="${flight.id}"/>
+    <input type="submit" name="confirm" value="Confirm"/>
+</form>
+
+</body>
+</html>
