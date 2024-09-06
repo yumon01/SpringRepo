@@ -55,6 +55,27 @@ public class PDFGenerator {
         table.addCell("Flight Number");
         table.addCell(reservation.getFlight().getFlightnumber());
 
+        table.addCell("Departure Date");
+        table.addCell(reservation.getFlight().getDepartureCity());
+        
+        table.addCell("Departure Time");
+        table.addCell(reservation.getFlight().getEstimatedDepartureTime().toString());
+        
+        cell = new PdfPCell(new Phrase("Passenger Details"));
+        cell.setColspan(2);
+        table.addCell(cell);
+        
+        table.addCell("First Name");
+        table.addCell(reservation.getPassenger().getFirstName());
+        
+        table.addCell("Last Name");
+        table.addCell(reservation.getPassenger().getLastName());
+        
+        table.addCell("Email");
+        table.addCell(reservation.getPassenger().getEmail());
+        
+        table.addCell("Phone");
+        table.addCell(reservation.getPassenger().getPhone());
         return table;
     }
 
